@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+  </head>
+  <body>
+    <center>
+      <p>
+        <span id="appendage"></span>
+        <span id="color"></span>
+      </p>
+      <button
+        class="uk-button uk-button-primary"
+        onClick="window.location.reload();"
+      >
+        Next move
+      </button>
+    </center>
+    <script>
+      const generateRandom = (min = 0, max = 3) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      colors = ["red", "yellow", "green", "blue"];
+      appendages = ["left foot", "left hand", "right foot", "right hand"];
+
+      const color = colors[generateRandom()];
+      const colorElement = document.getElementById("color");
+      colorElement.innerText = colorElement.style.color = color;
+
+      document.getElementById("appendage").innerText = appendages[generateRandom()];
+    </script>
+  </body>
+</html>
