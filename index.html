@@ -11,7 +11,7 @@
       </p>
       <button
         class="uk-button uk-button-primary"
-        onClick="window.location.reload();"
+        id="get-new-color-and-appendage"
       >
         Next move
       </button>
@@ -21,14 +21,51 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
+      const generateColor = (currentColor) => {
+        let newColor = colors[generateRandom()];
+        if (currentColor) {
+          while (newColor === currentColor) {
+            newColor = colors[generateRandom()];
+          }
+        }
+
+        return newColor;
+      }
+
+      const generateAppendage = (currentAppendage) => {
+        let appendage = appendages[generateRandom()];
+        if (currentAppendage) {
+          while (appendage === currentAppendage) {
+            appendage = appendages[generateRandom()];
+          }
+        }
+
+        return appendage;
+      }
+
+      const updateColorAndAppendage = () => {
+        let initialColor = colors[generateRandom()];
+        let initialAppendage = appendages[generateRandom()];
+
+        let color = generateColor(initialColor);
+        let appendage = generateAppendage(initialAppendage);
+
+        const colorElement = document.getElementById("color");
+        colorElement.innerText = colorElement.style.color = color;
+
+        document.getElementById("appendage").innerText = appendage;
+      }
+
       colors = ["red", "yellow", "green", "blue"];
       appendages = ["left foot", "left hand", "right foot", "right hand"];
 
-      const color = colors[generateRandom()];
-      const colorElement = document.getElementById("color");
-      colorElement.innerText = colorElement.style.color = color;
+      window.onload = function() {
+        updateColorAndAppendage();
+      }
 
-      document.getElementById("appendage").innerText = appendages[generateRandom()];
+      document.getElementById("get-new-color-and-appendage").addEventListener("click", () => {
+        updateColorAndAppendage();
+      });
     </script>
   </body>
 </html>
