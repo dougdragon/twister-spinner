@@ -1,20 +1,22 @@
 <html>
+
   <head>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
   </head>
+
   <body>
     <center>
       <p>
         <span id="appendage"></span>
         <span id="color"></span>
       </p>
-      <button
-        class="uk-button uk-button-primary uk-width-* uk-height-medium uk-text-lead uk-text-bolder"
-        id="get-new-color-and-appendage"
-      >
-        Next move
-      </button>
+      <div class="footer">
+        <button class="uk-button uk-button-primary uk-height-small uk-text-lead uk-text-bolder uk-margin-auto-top@s"
+          id="get-new-color-and-appendage">
+          Next move
+        </button>
+      </div>
     </center>
     <script>
       const generateRandom = (min = 0, max = 3) => {
@@ -59,13 +61,15 @@
       colors = ["red", "yellow", "green", "blue"];
       appendages = ["left foot", "left hand", "right foot", "right hand"];
 
-      window.onload = function() {
+      window.onload = () => {
         updateColorAndAppendage();
       }
 
-      document.getElementById("get-new-color-and-appendage").addEventListener("click", () => {
+      document.getElementById("get-new-color-and-appendage").addEventListener("click", (e) => {
+        e.preventDefault();
         updateColorAndAppendage();
       });
     </script>
   </body>
+
 </html>

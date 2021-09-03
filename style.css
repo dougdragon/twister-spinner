@@ -1,10 +1,24 @@
 p {
   text-align: center;
-  font-size: 20vh;
+  font-size: calc(6em + 0.5vw);
 }
 
-#appendage {
-  padding-right: 50px;
+button {
+  font-size: 10vw !important;
+  width: 75%;
 }
 
-/* more */
+@media (max-width: 300px) {
+  p {
+    font-size: 110px;
+  }
+  button {
+    font-size: 7vh !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  button {
+    font-size: 100px !important;
+  }
+}
