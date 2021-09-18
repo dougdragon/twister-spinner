@@ -1,9 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta name="description" content="Just a basic Twister spinner.">
     <title>Twister Spinner</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+    <script src="app.js"></script>
   </head>
 
   <body>
@@ -19,58 +24,6 @@
         </button>
       </div>
     </center>
-    <script>
-      const generateRandom = (min = 0, max = 3) => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-
-      const generateColor = (currentColor) => {
-        let newColor = colors[generateRandom()];
-        if (currentColor) {
-          while (newColor === currentColor) {
-            newColor = colors[generateRandom()];
-          }
-        }
-
-        return newColor;
-      }
-
-      const generateAppendage = (currentAppendage) => {
-        let appendage = appendages[generateRandom()];
-        if (currentAppendage) {
-          while (appendage === currentAppendage) {
-            appendage = appendages[generateRandom()];
-          }
-        }
-
-        return appendage;
-      }
-
-      const updateColorAndAppendage = () => {
-        let initialColor = colors[generateRandom()];
-        let initialAppendage = appendages[generateRandom()];
-
-        let color = generateColor(initialColor);
-        let appendage = generateAppendage(initialAppendage);
-
-        const colorElement = document.getElementById("color");
-        colorElement.innerText = colorElement.style.color = color;
-
-        document.getElementById("appendage").innerText = appendage;
-      }
-
-      colors = ["red", "yellow", "green", "blue"];
-      appendages = ["left foot", "left hand", "right foot", "right hand"];
-
-      window.onload = () => {
-        updateColorAndAppendage();
-      }
-
-      document.getElementById("get-new-color-and-appendage").addEventListener("click", (e) => {
-        e.preventDefault();
-        updateColorAndAppendage();
-      });
-    </script>
   </body>
 
 </html>
